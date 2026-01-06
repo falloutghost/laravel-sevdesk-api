@@ -229,6 +229,33 @@ class Invoice extends ApiClient
         return $sevInvoice;
     }
 
+    /**
+     * Create invoice from order.
+     *
+     * @param $orderId
+     * @return SevInvoice
+     * @throws Exception
+     */
+    public function createInvoiceFromOrder($orderId) {
+        $invoiceParameters = [
+            'order' => [
+                'id' => $orderId,
+                'objectName' => 'Order',
+            ],
+            'optArray' => null,
+            'type' => 'percentage',
+            'amount' => 100,
+            'partialType' => 'RE',
+            'optAddress' => null,
+        ];
+        $response = $this->_post(Routes::CREATE_INVOICE_FROM_ORDER, $invoiceParameters);
+
+        // create model with relationships
+        /** @var SevInvoice $sevInvoice */
+        $sevInvoice = SevInvoice::make($response);
+        return $sevInvoice;
+    }
+
     // =========================== create reminder ====================================
 
     /**

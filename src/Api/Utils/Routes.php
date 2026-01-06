@@ -22,6 +22,7 @@ class Routes
     const SEV_USER = 'SevUser';
     const CREATE_ORDER = self::ORDER . '/Factory/saveOrder';
     const CREATE_INVOICE = self::INVOICE . '/Factory/saveInvoice';
+    const CREATE_INVOICE_FROM_ORDER = self::INVOICE . '/Factory/createInvoiceFromOrder';
     const CREATE_REMINDER = self::INVOICE . '/Factory/createInvoiceReminder';
     const STATIC_COUNTRY = 'StaticCountry';
     const SEQUENCE = 'SevSequence/Factory/getByType';
