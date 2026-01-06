@@ -25,5 +25,5 @@ class OrderType
     /**
      * A confirmation that goods from an estimate / proposal have been sent.
      */
-    const DELIVERY_NODE = 'LI';
+    const DELIVERY_NOTE = 'LI';
 }
