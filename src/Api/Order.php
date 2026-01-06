@@ -170,7 +170,9 @@ class Order extends ApiClient
     public function create($contactId, $items, array $parameters = []): SevOrder
     {
         // create parameter array
-        $parameters['orderType'] = OrderType::PROPOSAL;
+        if (!isset($parameters['orderType'])) {
+            $parameters['orderType'] = OrderType::PROPOSAL;
+        }
         $orderParameters = DocumentHelper::getOrderParameters($contactId, $items, $parameters);
         $response = $this->_post(Routes::CREATE_ORDER, $orderParameters);
 
